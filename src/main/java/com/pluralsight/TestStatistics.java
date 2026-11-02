@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Arrays;
+
 public class TestStatistics {
     public static void main(String[] args) {
 
@@ -27,10 +29,21 @@ public class TestStatistics {
             }
         }
 
-        System.out.println(average);
-        System.out.println(max);
-        System.out.println(min);
+        int[] sorted = Arrays.copyOf(testStatistics, testStatistics.length);
+        Arrays.sort(sorted);
 
+        double median;
+        if(sorted.length % 2 == 0) {
+            median = (sorted[sorted.length / 2 -1] + sorted[sorted.length / 2]) / 2.0;
+        }else {
+            median = sorted[sorted.length / 2];
+        }
+
+        System.out.println("average = " + average);
+        System.out.println("min = " + min);
+        System.out.println("max = " + max);
+        System.out.println("sorted = " + Arrays.toString(sorted));
+        System.out.println("median = " + median);
 
 
 
